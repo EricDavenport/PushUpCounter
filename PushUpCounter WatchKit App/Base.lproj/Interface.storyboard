@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16097.3" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <scenes>
+        <!--Add Push UpIC-->
+        <scene sceneID="gYl-fI-J7H">
+            <objects>
+                <controller id="DNj-5X-UdC" customClass="AddPushUpIC" customModule="PushUpCounter_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="932-Ew-YAb"/>
+                        <label alignment="left" id="ELw-92-5kA"/>
+                        <textField width="1" alignment="left" placeholder="10" id="alS-fQ-Pzp">
+                            <connections>
+                                <action selector="pushUpFieldAction:" destination="DNj-5X-UdC" id="w9z-fj-jjE"/>
+                            </connections>
+                        </textField>
+                        <button width="1" alignment="left" title="Save" id="WjT-jc-nhh">
+                            <connections>
+                                <action selector="test" destination="DNj-5X-UdC" id="vjB-m1-f71"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="amountTextField" destination="alS-fQ-Pzp" id="Phj-Aw-6C9"/>
+                        <outlet property="saveButton" destination="WjT-jc-nhh" id="Got-6q-41Y"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="232" y="47"/>
+        </scene>
+        <!--mainInterface-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="mainInterface" id="AgC-eL-Hgc" customClass="MainInterfaceController" customModule="PushUpCounter_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" height="65" alignment="left" id="93a-lT-aF9">
+                            <items>
+                                <group width="0.5" height="105" alignment="left" layout="vertical" id="jlV-Gt-zT3">
+                                    <items>
+                                        <label width="63" alignment="left" text="Current" textAlignment="center" baselineAdjustment="alignCenters" minimumScaleFactor="0.90000000000000002" id="Fpy-F9-bry"/>
+                                        <separator alignment="left" id="fbF-ME-YvE"/>
+                                        <label width="60" alignment="left" text="100" textAlignment="center" id="sgV-KK-uLY"/>
+                                    </items>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </group>
+                                <separator alignment="left" id="wgO-9z-6VP"/>
+                                <group width="0.5" height="105" alignment="left" layout="vertical" id="eLM-0O-MaR">
+                                    <items>
+                                        <label width="61" alignment="left" text="Goal" textAlignment="center" baselineAdjustment="alignCenters" id="MUV-a5-sUC"/>
+                                        <separator alignment="left" id="BBn-83-nQl"/>
+                                        <label width="60" alignment="left" text="100" textAlignment="center" id="zHO-Fv-t4D"/>
+                                    </items>
+                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" contentMode="scaleAspectFit" spacing="19" id="XnU-0d-Jyx">
+                            <items>
+                                <button width="1" alignment="left" title="+ Add Push Up" id="h0Q-O6-GrJ">
+                                    <connections>
+                                        <segue destination="DNj-5X-UdC" kind="modal" id="jns-YG-Hz4"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                        <table alignment="left" id="UW3-Nc-lvG">
+                            <items>
+                                <tableRow identifier="pushUpRow" selectable="NO" id="1tT-d8-8uL" customClass="PushUpRowController" customModule="PushUpCounter_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="46" alignment="left" id="gcJ-bG-Skp">
+                                        <items>
+                                            <separator alignment="left" id="4Ne-4z-hgv"/>
+                                            <group width="1" alignment="left" layout="vertical" id="NLT-45-l6s">
+                                                <items>
+                                                    <label alignment="left" text="Amount:" id="GMB-UL-Gki"/>
+                                                    <label alignment="left" text="Date:" id="IZR-bl-wCE"/>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="amountLabel" destination="GMB-UL-Gki" id="fnJ-NA-FpX"/>
+                                        <outlet property="dateLabel" destination="IZR-bl-wCE" id="wDa-8P-0bE"/>
+                                        <outlet property="separator" destination="4Ne-4z-hgv" id="iph-po-qv8"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="currentInterfaceLabel" destination="sgV-KK-uLY" id="lBL-tl-Xqf"/>
+                        <outlet property="goalInterfaceLabel" destination="zHO-Fv-t4D" id="Pql-6w-L2e"/>
+                        <outlet property="pushUpTable" destination="UW3-Nc-lvG" id="VdB-Ql-7bq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-69" y="256"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="HdY-6s-Yv7">
+            <objects>
+                <controller id="WG7-9c-KxX"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="643"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="PushUpCounter_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="PushUpCounter_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>
